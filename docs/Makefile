@@ -1,0 +1,1 @@
+#Makefile is to specify how source code files should be compiled and linked to create executable binaries or libraries.
