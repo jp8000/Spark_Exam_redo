@@ -3,9 +3,8 @@ import pytest
 import sys
 import os
 
-#from src.Spark_Exam.CustomerAccount import CustomerAccount
+from src.Spark_Exam.parse_address import parse_address
 
-from src.Spark_Exam.CustomerAccount import parse_address
 
 
 
@@ -37,6 +36,6 @@ def test_parse_address_missing_comma():
 
 
 
-
-# command: python3 -m pytest -v test_functions.py
+# cd into the "tests" folder 
+# command: python3 -m pytest -v test_parse_address.py
 
