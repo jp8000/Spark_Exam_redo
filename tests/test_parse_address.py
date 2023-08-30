@@ -1,13 +1,5 @@
 import pytest
-
-import sys
-import os
-
 from src.Spark_Exam.parse_address import parse_address
-
-
-
-
 
 
 def test_parse_address():
