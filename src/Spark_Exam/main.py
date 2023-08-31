@@ -22,22 +22,24 @@ df_accounts_data = spark.read.option("header", "true").option("inferSchema", "fa
 df_customer_data = spark.read.option("header", "true").option("inferSchema", "false") \
     .csv("data/customer_data.txt") 
 
-# Performing a join operation.  (accounts_data / customer data)
+# Performing a join operation.  (accounts_data / customer_data)
 Customer_Account_Output_Data = df_accounts_data.join(df_customer_data, "customerId")
+
+Customer_Account_Output_Data.show()
 
 # Add additional columns
 # GroupBy: "customerId", "forename", "surname" as we need these columns for reference
-Customer_Account_Output_Data_addedFields = Customer_Account_Output_Data.groupBy("customerId", "forename", "surname").agg(
+Customer_Account_Output_Data_Added_Fields = Customer_Account_Output_Data.groupBy("customerId", "forename", "surname").agg(
     collect_list("accountId").alias("accounts"),
     count("accountId").alias("numberAccounts"),
     sum("balance").alias("totalBalance"),
     avg("balance").alias("averageBalance")
 )
 # print tables - QUESTION 1 TABLE
-Customer_Account_Output_Data_addedFields.show()
+Customer_Account_Output_Data_Added_Fields.show()
 
 # Save DataFrame as Parquet file
-#Customer_Account_Output_Data_addedFields.write.parquet("Spark_Exam_Redo/data")
+#Customer_Account_Output_Data_Added_Fields.write.parquet("Spark_Exam_Redo/data")
 
 
 # Read the Parquet file from 
@@ -47,7 +49,7 @@ parquet_df = spark.read.parquet("data/output.parquet/part-00000-164e172d-36bd-47
 df_address_data = spark.read.option("header", "true").option("inferSchema", "false") \
     .csv("data/address_data.txt") 
 
-# Performing a join between parquet_df and df_address_data in the customerId column
+# Performing a join between parquet_df and df_address_data using the customerId column
 address_joined_parquet_df = parquet_df.join(df_address_data, "customerId")
 
 # Prints to joined data

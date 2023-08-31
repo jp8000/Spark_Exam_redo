@@ -1,0 +1,45 @@
+CREATE Spark Session
+
+READ CSV account data
+    CREATE dataframe FROM account data
+
+READ CSV customer data 
+    CREATE dataframe FROM customer data
+
+
+JOIN account data and customer data
+    CREATE combined dataframe
+
+PRINT combined dataframe
+
+CREATE necessary columns FOR combined dataframe
+    user id number 
+    user forename
+    user surname
+    user list accounts 
+    user numnber of accounts
+    user total of balance 
+    user average balance 
+
+PRINT dataframe FOR combined dataframe
+
+OUTPUT combined dataframe as Parquet file 
+
+READ Parquet file
+READ CSV address data
+JOIN Parquet file AND address data 
+
+PRINT JOINED dataframe FORM Parquet file AND address data
+
+
+
+LOOP over values in dataframe
+    EXTRACT values FROM dataframe      <QUESTION "Do I need to break down the function ?">
+    EXTRACT address components to seprate partitions FROM dataframe
+    ASSIGN EXTRACTED address values TO ADDED columns
+
+
+        
+DEFINE column order FOR dataframe 
+
+PRINT dataframe 
