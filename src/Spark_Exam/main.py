@@ -109,6 +109,6 @@ Customer_Account_Parsed_Address = Customer_Account_Objects.select(*column_order)
 # Show the DataFrame.   truncate=False: displays data at full length.
 Customer_Account_Parsed_Address.show(truncate=False)
 
-#prints all lines of data
-#Customer_Account_Parsed_Address.show(Customer_Account_Parsed_Address.count(), truncate=False)
+# Prints all lines of data
+# Customer_Account_Parsed_Address.show(Customer_Account_Parsed_Address.count(), truncate=False)
 

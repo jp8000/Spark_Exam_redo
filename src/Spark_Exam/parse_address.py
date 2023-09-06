@@ -3,15 +3,15 @@ def parse_address(address):
     # Split the address by commas
     address_parts = address.split(',')
 
-        # accessing the elements using indexing 
-        # strip() - removes any empty spaces around the data
+        # Accessing the elements using indexing 
+        
     if len(address_parts) == 4:
-        streetNumber = address_parts[0].strip()
+        streetNumber = address_parts[0].strip() # strip() - removes any empty spaces around the data"'
         streetName = address_parts[1].strip()
         city = address_parts[2].strip()
         country = address_parts[3].strip()
 
-    # creating a dictionary with parsed address components
+    # Creating a dictionary with parsed address components
         parsed_address = {
             'streetNumber': streetNumber,
             'streetName': streetName,
